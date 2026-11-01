@@ -1,0 +1,28 @@
+{
+  "name": "genpark-personal-agent-total-daily-energy-expenditure-skill",
+  "version": "1.0.0",
+  "description": "Calculates precision multi-compartment TDEE (BMR, NEAT, EAT, TEF) and detects metabolic adaptation during caloric restriction.",
+  "tools": [
+    {
+      "name": "calculate_precision_tdee",
+      "description": "Calculates exact multi-compartment TDEE (BMR + NEAT + EAT + TEF) from body composition and macros.",
+      "parameters": {
+        "lean_mass_kg": "float",
+        "total_mass_kg": "float",
+        "daily_steps": "int (optional, default 8500)",
+        "exercise_calories": "float (optional, default 350.0)",
+        "protein_grams": "float (optional, default 140.0)",
+        "carb_grams": "float (optional, default 220.0)",
+        "fat_grams": "float (optional, default 65.0)"
+      }
+    },
+    {
+      "name": "detect_metabolic_adaptation",
+      "description": "Detects adaptive thermogenesis and prescribes diet breaks/refeeds based on weight-intake regression.",
+      "parameters": {
+        "caloric_intake_history": "list of floats",
+        "scale_weight_history_kg": "list of floats"
+      }
+    }
+  ]
+}
